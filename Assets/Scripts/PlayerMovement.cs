@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private LayerMask taskLayers;
 
     private bool isClimbing = false;
-    private bool canDismount = false;
+    public bool canDismount = false;
+    public bool canMount = true;
 
     void Start() {
         collide = GetComponent<BoxCollider2D>();
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
         float hDirection = Input.GetAxisRaw("Horizontal");
         float vDirection = Input.GetAxisRaw("Vertical");
+
 
         if (isClimbing) {
             if ((canDismount || vDirection == 0) && hDirection != 0) {
@@ -35,17 +37,15 @@ public class PlayerMovement : MonoBehaviour {
             }
 
             Collider2D ladder = GetOverlappingLadder(vDirection);
-            if (ladder != null) {
+            if (isClimbing && ladder != null) {
                 vVelocity = Mathf.MoveTowards(vVelocity, vDirection * climbSpeed, climbAcceleration);
             } else {
                 vVelocity = 0f;
             }
             
-            if (Input.GetButtonUp("Horizontal")) {
-                canDismount = true;
-            }
+            
         } else {
-            if (vDirection != 0) {
+            if (canMount && vDirection != 0) {
                 Collider2D ladder = GetOverlappingLadder(vDirection);
                 if (ladder != null) {
                     GetOnLadder(ladder);
@@ -66,6 +66,14 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
+        if (Input.GetButtonUp("Horizontal")) {
+            canDismount = true;
+        }
+
+        if (Input.GetButtonUp("Vertical")) {
+            canMount = true;
+        }
+        
         transform.Translate(hVelocity * Time.deltaTime, vVelocity * Time.deltaTime, 0f);
     }
 
@@ -109,5 +117,6 @@ public class PlayerMovement : MonoBehaviour {
         float playerHeightOffset = transform.localScale.y / 2;
         transform.position = new Vector3(transform.position.x + direction * transform.localScale.x / 2, groundSurfaceHeight + playerHeightOffset, transform.position.z);
         isClimbing = false;
+        canMount = false;
     }
 }

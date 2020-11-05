@@ -3,13 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour {
-    // Start is called before the first frame update
+    [SerializeField] private BatterySlider batterySlider;
+    [SerializeField] private float dischargeRate = 0.01f;
+    public float charge = 1f;
     void Start() {
         
     }
 
-    // Update is called once per frame
     void Update() {
-        
+        Discharge();
+    }
+
+    private void Discharge() {
+        charge -= dischargeRate * Time.deltaTime;
+        CheckCharge();
+        batterySlider.UpdateCharge(charge);
+    }
+
+    private void CheckCharge() {
+        if (charge <= 0f) {
+            Debug.Log("GAME OVER");
+            Time.timeScale = 0f;
+        }
     }
 }
