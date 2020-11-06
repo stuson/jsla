@@ -15,11 +15,16 @@ public class Task : MonoBehaviour {
     
     private SpriteRenderer render;
 
+    [SerializeField] private GameObject warningPointer;
+    private GameObject canvas;
+    private GameObject pointer;
+
     void Start() {
-        breakTimer = Random.Range(minCooldown, maxCooldown);
+        breakTimer = Random.Range(0f, 60f);
         render = GetComponent<SpriteRenderer>();
         originalX = transform.position.x;
         Debug.Log(originalX);
+        canvas = GameObject.FindGameObjectWithTag("MainCanvas");
     }
 
     void Update() {
@@ -52,15 +57,18 @@ public class Task : MonoBehaviour {
         status = TaskStatus.repaired;
         render.color = Color.white;
         transform.position = new Vector3(originalX, transform.position.y, transform.position.z);
+        RemovePointer();
     }
     private void SetBroken() {
         status = TaskStatus.broken;
         render.color = Color.yellow;
+        CreatePointer(Color.yellow);
     }
 
     private void SetCritical() {
         render.color = Color.red;
         status = TaskStatus.critical;
+        CreatePointer(Color.red);
     }
 
     private void SetDestroyed() {
@@ -72,6 +80,21 @@ public class Task : MonoBehaviour {
     private void SetGameOver() {
         Debug.Log("GAME OVER");
         Time.timeScale = 0;
+    }
+
+    private void CreatePointer(Color color) {
+        RemovePointer();
+        pointer = Instantiate(warningPointer, Vector3.zero, Quaternion.identity, canvas.transform);
+        WarningPointer p = pointer.GetComponent<WarningPointer>();
+        p.color = color;
+        p.target = transform.position;
+    }
+
+    private void RemovePointer() {
+        if (pointer != null) {
+            Destroy(pointer);
+            pointer = null;
+        }
     }
 
     private void Shake() {
