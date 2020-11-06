@@ -11,9 +11,12 @@ public class PlayerMovement : MonoBehaviour {
     private float vVelocity;
 
     private BoxCollider2D collide;
+    private PlayerBehaviour player;
+
     [SerializeField] private LayerMask ladderLayers;
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private LayerMask taskLayers;
+    [SerializeField] private LayerMask chargeStationLayers;
 
     private bool isClimbing = false;
     public bool canDismount = false;
@@ -21,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Start() {
         collide = GetComponent<BoxCollider2D>();
+        player = GetComponent<PlayerBehaviour>();
     }
 
     void Update() {
@@ -64,6 +68,10 @@ public class PlayerMovement : MonoBehaviour {
                     taskCollider.gameObject.GetComponent<Task>().Repair();
                 }
             }
+
+            if (Input.GetAxis("Interact") > 0f && GetOverlappingChargeStation()) {
+                player.Charge();
+            }
         }
 
         if (Input.GetButtonUp("Horizontal")) {
@@ -73,7 +81,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButtonUp("Vertical")) {
             canMount = true;
         }
-        
+
         transform.Translate(hVelocity * Time.deltaTime, vVelocity * Time.deltaTime, 0f);
     }
 
@@ -102,6 +110,11 @@ public class PlayerMovement : MonoBehaviour {
     private Collider2D GetOverlappingTask() {
         Collider2D task = Physics2D.OverlapPoint(transform.position, taskLayers);
         return task;
+    }
+
+    private Collider2D GetOverlappingChargeStation() {
+        Collider2D station = Physics2D.OverlapPoint(transform.position, chargeStationLayers);
+        return station;
     }
 
     private void GetOnLadder(Collider2D ladder) {
