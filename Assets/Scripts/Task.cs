@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.
+
 
 public class Task : MonoBehaviour {
     [SerializeField] private float minCooldown = 20f;
@@ -19,6 +19,7 @@ public class Task : MonoBehaviour {
     [SerializeField] private GameObject warningPointer;
     private GameObject canvas;
     private GameObject pointer;
+    
 
     void Start() {
         breakTimer = Random.Range(0f, 60f);
