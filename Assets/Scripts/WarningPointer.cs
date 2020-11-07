@@ -15,6 +15,7 @@ public class WarningPointer : MonoBehaviour {
         render.color = color;
         cam = Camera.main;
         player = GameObject.FindGameObjectWithTag("Player");
+        render.enabled = false;
     }
 
     void Update() {
@@ -24,10 +25,10 @@ public class WarningPointer : MonoBehaviour {
         Bounds camBounds = new Bounds(camPos, new Vector3(hSize, vSize, 0f));
 
         if (!camBounds.Contains(target)) {
-            render.enabled = true;
-
             transform.up = target - player.transform.position;
             transform.position = Vector3.Lerp(player.transform.position, camBounds.ClosestPoint(target), 0.8f);
+
+            render.enabled = true;
         } else {
             render.enabled = false;
         }

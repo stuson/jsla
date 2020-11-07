@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="67.5pt"
+   version="1.1"
+   viewBox="-17 0 59.999996 67.717202"
+   width="59.999996pt"
+   id="svg53"
+   sodipodi:docname="Ladder.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata59">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs57" />
+  <sodipodi:namedview
+     pagecolor="#3c3c3c"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     id="namedview55"
+     showgrid="true"
+     inkscape:zoom="4.8423216"
+     inkscape:cx="71.061234"
+     inkscape:cy="59.041508"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg53">
+    <inkscape:grid
+       type="xygrid"
+       id="grid892"
+       originx="-3.750002"
+       originy="3.7620649" />
+  </sodipodi:namedview>
+  <path
+     id="rect66"
+     style="fill:none;fill-rule:evenodd;stroke:#00ff00;stroke-width:7.52413;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 39.334467,3.7620649 V 67.7172 c -10e-7,-19.138683 0,-42.585617 -10e-7,-63.9551351 h -52.668934 l 0,22.5724011 h 52.668934 l 0,22.5724 h -52.668934 l 0,18.810334 V 3.7620649"
+     sodipodi:nodetypes="cccccccccc" />
+</svg>

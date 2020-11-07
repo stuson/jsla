@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2744269564952388078, guid: c889cc92976b05245b525f2bc78410e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 2744269564952388078, guid: c889cc92976b05245b525f2bc78410e3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: bf77c486811b97f4780c0024068d4c9d, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1935,7 +1935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: bf77c486811b97f4780c0024068d4c9d, type: 2}
   m_Color: {r: 1, g: 0.9728835, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2156,6 +2156,18 @@ PrefabInstance:
     - target: {fileID: 1818247945562310450, guid: dc88e0eec87c99b44bf3dcb814c266b4, type: 3}
       propertyPath: m_Size.y
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818247945562310450, guid: dc88e0eec87c99b44bf3dcb814c266b4, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818247945562310450, guid: dc88e0eec87c99b44bf3dcb814c266b4, type: 3}
+      propertyPath: m_DrawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818247945562310450, guid: dc88e0eec87c99b44bf3dcb814c266b4, type: 3}
+      propertyPath: m_SpriteTileMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1818247945562310451, guid: dc88e0eec87c99b44bf3dcb814c266b4, type: 3}
       propertyPath: m_LocalPosition.x

@@ -19,6 +19,13 @@ public class Task : MonoBehaviour {
     [SerializeField] private GameObject warningPointer;
     private GameObject canvas;
     private GameObject pointer;
+
+    [SerializeField] private Sprite repairedSprite;
+    [SerializeField] private Material repairedMaterial;
+    [SerializeField] private Sprite brokenSprite;
+    [SerializeField] private Material brokenMaterial;
+    [SerializeField] private Sprite criticalSprite;
+    [SerializeField] private Material criticalMaterial;
     
 
     void Start() {
@@ -56,21 +63,23 @@ public class Task : MonoBehaviour {
     }
 
     private void SetRepaired() {
-        status = TaskStatus.repaired;
-        render.color = Color.white;
         transform.position = new Vector3(originalX, transform.position.y, transform.position.z);
+        status = TaskStatus.repaired;
+        render.sprite = repairedSprite;
+        render.material = repairedMaterial;
         RemovePointer();
     }
     private void SetBroken() {
         status = TaskStatus.broken;
-        render.color = Color.yellow;
-        
+        render.sprite = brokenSprite;
+        render.material = brokenMaterial;
         CreatePointer(Color.yellow);
     }
 
     private void SetCritical() {
-        render.color = Color.red;
         status = TaskStatus.critical;
+        render.sprite = criticalSprite;
+        render.material = criticalMaterial;
         CreatePointer(Color.red);
     }
 
