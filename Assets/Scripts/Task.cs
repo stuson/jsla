@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.
 
 public class Task : MonoBehaviour {
     [SerializeField] private float minCooldown = 20f;
@@ -62,6 +63,7 @@ public class Task : MonoBehaviour {
     private void SetBroken() {
         status = TaskStatus.broken;
         render.color = Color.yellow;
+        
         CreatePointer(Color.yellow);
     }
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7570979977282591937}
   - component: {fileID: 6514048896455442577}
   m_Layer: 10
-  m_Name: Task
+  m_Name: Glassware
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d11f01c36596bc42a01f2dfe47fc22a, type: 2}
+  - {fileID: 2100000, guid: 5c09b221f5c3c2248b764689a554ddcc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a6720e23c3b00a744b20bd6b32da9909, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: 349246900e741ea44a0e69661ce925f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
