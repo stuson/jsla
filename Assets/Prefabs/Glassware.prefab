@@ -101,7 +101,8 @@ MonoBehaviour:
   criticalThreshold: -160
   gameOverThreshold: -180
   breakTimer: 0
-  warningPointer: {fileID: 1309121521016825300, guid: fb476b94c47692c46b1ee0e59731385f, type: 3}
+  warningPointerBroken: {fileID: 1309121521016825300, guid: fb476b94c47692c46b1ee0e59731385f, type: 3}
+  warningPointerCritical: {fileID: 1309121521016825300, guid: c81952dd6e8ccd546b7c401e19a19f44, type: 3}
   repairedSprite: {fileID: 3286163911610860551, guid: 349246900e741ea44a0e69661ce925f4, type: 3}
   repairedMaterial: {fileID: 2100000, guid: 5c09b221f5c3c2248b764689a554ddcc, type: 2}
   brokenSprite: {fileID: 3286163911610860551, guid: 723bd74cdc70b5f41b76c9466253e6a7, type: 3}

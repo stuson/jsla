@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1422229940509583742}
   - component: {fileID: 1077450305028267107}
   m_Layer: 0
-  m_Name: WarningPointer
+  m_Name: WarningPointer_Broken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b4ef378d3ea47cc40886df9756844552, type: 2}
+  - {fileID: 2100000, guid: 4d11f01c36596bc42a01f2dfe47fc22a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -558904029
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: db55d120151c52048ab00be76c1ceb01, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: 0cec8fe2b7512ee47921d900e0d8c639, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.4627451}
   m_FlipX: 0
   m_FlipY: 0

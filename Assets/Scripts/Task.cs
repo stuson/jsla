@@ -16,8 +16,9 @@ public class Task : MonoBehaviour {
     
     private SpriteRenderer render;
 
-    [SerializeField] private GameObject warningPointer;
-    private GameObject canvas;
+    [SerializeField] private GameObject warningPointerBroken;
+    [SerializeField] private GameObject warningPointerCritical;
+    private Camera cam;
     private GameObject pointer;
 
     [SerializeField] private Sprite repairedSprite;
@@ -32,8 +33,7 @@ public class Task : MonoBehaviour {
         breakTimer = Random.Range(0f, 60f);
         render = GetComponent<SpriteRenderer>();
         originalX = transform.position.x;
-        Debug.Log(originalX);
-        canvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        cam = Camera.main;
     }
 
     void Update() {
@@ -73,14 +73,14 @@ public class Task : MonoBehaviour {
         status = TaskStatus.broken;
         render.sprite = brokenSprite;
         render.material = brokenMaterial;
-        CreatePointer(Color.yellow);
+        CreatePointer(warningPointerBroken);
     }
 
     private void SetCritical() {
         status = TaskStatus.critical;
         render.sprite = criticalSprite;
         render.material = criticalMaterial;
-        CreatePointer(Color.red);
+        CreatePointer(warningPointerCritical);
     }
 
     private void SetDestroyed() {
@@ -94,11 +94,10 @@ public class Task : MonoBehaviour {
         Time.timeScale = 0;
     }
 
-    private void CreatePointer(Color color) {
+    private void CreatePointer(GameObject warningPointer) {
         RemovePointer();
-        pointer = Instantiate(warningPointer, Vector3.zero, Quaternion.identity, canvas.transform);
+        pointer = Instantiate(warningPointer, Vector3.zero, Quaternion.identity, cam.transform);
         WarningPointer p = pointer.GetComponent<WarningPointer>();
-        p.color = color;
         p.target = transform.position;
     }
 
