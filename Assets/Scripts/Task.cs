@@ -27,6 +27,7 @@ public class Task : MonoBehaviour {
     [SerializeField] private Material brokenMaterial;
     [SerializeField] private Sprite criticalSprite;
     [SerializeField] private Material criticalMaterial;
+    private GameManager gameManager;
     
 
     void Start() {
@@ -34,6 +35,7 @@ public class Task : MonoBehaviour {
         render = GetComponent<SpriteRenderer>();
         originalX = transform.position.x;
         cam = Camera.main;
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     void Update() {
@@ -86,12 +88,7 @@ public class Task : MonoBehaviour {
     private void SetDestroyed() {
         render.color = Color.black;
         status = TaskStatus.destroyed;
-        SetGameOver();
-    }
-
-    private void SetGameOver() {
-        Debug.Log("GAME OVER");
-        Time.timeScale = 0;
+        gameManager.GameOver();
     }
 
     private void CreatePointer(GameObject warningPointer) {
