@@ -1,14 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
-    public float victoryTimer = 600f;
+    public TimeSpan victoryTimer;
     public float difficultyFactor;
+    private TextMeshProUGUI victoryTimerDisplay;
+
+    void Start() {
+        victoryTimer = TimeSpan.FromSeconds(300f);
+        victoryTimerDisplay = GameObject.FindGameObjectWithTag("VictoryTimer").GetComponent<TextMeshProUGUI>();
+    }
 
     void Update() {
-        victoryTimer -= Time.deltaTime;
-        if (victoryTimer <= 0f) {
+        victoryTimer = victoryTimer.Subtract(TimeSpan.FromSeconds(Time.deltaTime));
+        victoryTimerDisplay.text = $"{victoryTimer:m\\:ss}";
+        if (victoryTimer.TotalSeconds < 0f) {
             GameOver();
         }
     }
