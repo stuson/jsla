@@ -2141,7 +2141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3e34ead106fad4398c921ab7cb2dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyFactor: 0
+  victoryTime: 300
+  difficultyFactor: 1
 --- !u!4 &1945609597
 Transform:
   m_ObjectHideFlags: 0

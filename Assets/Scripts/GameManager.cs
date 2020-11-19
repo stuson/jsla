@@ -7,13 +7,14 @@ using TMPro;
 
 public class GameManager : MonoBehaviour {
     public TimeSpan victoryTimer;
-    public float difficultyFactor;
+    public float victoryTime = 300f;
+    public float difficultyFactor = 1f;
     private TextMeshProUGUI victoryTimerDisplay;
     private CanvasGroup pauseMenu;
     private bool isPaused = false;
 
     void Start() {
-        victoryTimer = TimeSpan.FromSeconds(300f);
+        victoryTimer = TimeSpan.FromSeconds(victoryTime);
         victoryTimerDisplay = GameObject.FindGameObjectWithTag("VictoryTimer").GetComponent<TextMeshProUGUI>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<CanvasGroup>();
     }
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour {
         if (victoryTimer.TotalSeconds < 0f) {
             GameOver();
         }
+
+        difficultyFactor *= 1f + Time.deltaTime / 100;
     }
 
     private void PauseGame() {

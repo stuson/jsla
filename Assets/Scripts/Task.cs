@@ -4,12 +4,12 @@ using UnityEngine;
 
 
 public class Task : MonoBehaviour {
-    [SerializeField] private float minCooldown = 20f;
-    [SerializeField] private float maxCooldown = 120f;
+    [SerializeField] private float baseMinCooldown = 20f;
+    [SerializeField] private float baseMaxCooldown = 120f;
     private TaskStatus status = TaskStatus.repaired;
 
-    [SerializeField] private float criticalThreshold = -160f;
-    [SerializeField] private float gameOverThreshold = -180f;
+    [SerializeField] private float criticalThreshold = -40f;
+    [SerializeField] private float gameOverThreshold = -60f;
     [SerializeField] private float breakTimer;
 
     private float originalX;
@@ -44,9 +44,16 @@ public class Task : MonoBehaviour {
         Shake();
     }
 
+    private float ScaleCooldown(float baseCooldown) {
+        float minCooldown = 10f;
+        return minCooldown + (baseCooldown / gameManager.difficultyFactor);
+    }
+
     public void Repair() {
         if (status != TaskStatus.repaired) {
             SetRepaired();
+            float minCooldown = ScaleCooldown(baseMinCooldown);
+            float maxCooldown = ScaleCooldown(baseMaxCooldown);
             breakTimer = Random.Range(minCooldown, maxCooldown);
         }
     }

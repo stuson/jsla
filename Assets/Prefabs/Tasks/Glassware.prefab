@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d270662d77be4f14aa11e690b211b3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minCooldown: 20
-  maxCooldown: 160
-  criticalThreshold: -160
-  gameOverThreshold: -180
+  baseMinCooldown: 20
+  baseMaxCooldown: 120
+  criticalThreshold: -40
+  gameOverThreshold: -60
   breakTimer: 0
   warningPointerBroken: {fileID: 1309121521016825300, guid: fb476b94c47692c46b1ee0e59731385f, type: 3}
   warningPointerCritical: {fileID: 1309121521016825300, guid: c81952dd6e8ccd546b7c401e19a19f44, type: 3}
