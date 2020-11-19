@@ -75,7 +75,7 @@ public class DialogueSystem : MonoBehaviour, IPointerClickHandler {
         if (nextDialogue != null) {
             nextDialogue.StartDialogue();
         } else {
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("TitleScreen");
         }
     }
 

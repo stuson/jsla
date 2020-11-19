@@ -8,6 +8,9 @@ TagManager:
   - CG
   - TextBackground
   - VictoryTimer
+  - StartButton
+  - ExitButton
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
