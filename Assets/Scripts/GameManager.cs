@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public float victoryTime = 300f;
     public float difficultyFactor = 1f;
     private TextMeshProUGUI victoryTimerDisplay;
+    private GravitySlider gravitySlider;
     private CanvasGroup pauseMenu;
     private bool isPaused = false;
 
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour {
         victoryTimer = TimeSpan.FromSeconds(victoryTime);
         victoryTimerDisplay = GameObject.FindGameObjectWithTag("VictoryTimer").GetComponent<TextMeshProUGUI>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<CanvasGroup>();
+        gravitySlider = GameObject.FindGameObjectWithTag("GravitySlider").GetComponent<GravitySlider>();
     }
 
     void Update() {
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour {
         }
 
         difficultyFactor *= 1f + Time.deltaTime / 100;
+        gravitySlider.UpdateGravity(difficultyFactor);
     }
 
     private void PauseGame() {

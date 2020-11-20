@@ -11,6 +11,7 @@ TagManager:
   - StartButton
   - ExitButton
   - PauseMenu
+  - GravitySlider
   layers:
   - Default
   - TransparentFX
