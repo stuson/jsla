@@ -5,6 +5,11 @@ using UnityEngine;
 public class MenuSelect : MonoBehaviour {
     [SerializeField] private MenuOption[] menuOptions;
     private int optionIndex = 0;
+    private AudioSource selectNoise;
+
+    void Start() {
+        selectNoise = GetComponent<AudioSource>();
+    }
 
     void Update() {
         if (Input.GetKeyDown("up")) {
@@ -20,6 +25,7 @@ public class MenuSelect : MonoBehaviour {
         DeselectAllOptions();
         optionIndex = (optionIndex + direction) % menuOptions.Length;
         menuOptions[optionIndex].Select();
+        selectNoise.Play();
     }
 
     private void TriggerOption() {

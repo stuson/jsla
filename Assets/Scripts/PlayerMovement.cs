@@ -82,7 +82,9 @@ public class PlayerMovement : MonoBehaviour {
             canMount = true;
         }
 
-        transform.Translate(hVelocity * Time.deltaTime, vVelocity * Time.deltaTime, 0f);
+        float speedMul = Mathf.Lerp(0.3f, 1f, player.charge);
+
+        transform.Translate(hVelocity * speedMul * Time.deltaTime, vVelocity * speedMul * Time.deltaTime, 0f);
     }
 
     private bool IsGrounded(float direction) {

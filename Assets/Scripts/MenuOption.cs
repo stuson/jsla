@@ -5,9 +5,11 @@ using UnityEngine.EventSystems;
 
 public abstract class MenuOption : MonoBehaviour, IPointerClickHandler {
     private SpriteRenderer indicator;
+    public AudioSource selectNoise;
 
     void Start() {
         indicator = GetComponentInChildren<SpriteRenderer>();
+        selectNoise = GetComponent<AudioSource>();
     }
 
     public void Select() {

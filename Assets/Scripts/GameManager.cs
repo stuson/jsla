@@ -13,12 +13,15 @@ public class GameManager : MonoBehaviour {
     private GravitySlider gravitySlider;
     private CanvasGroup pauseMenu;
     private bool isPaused = false;
+    private AudioSource warningNoise;
+    private bool warningNoisePlaying;
 
     void Start() {
         victoryTimer = TimeSpan.FromSeconds(victoryTime);
         victoryTimerDisplay = GameObject.FindGameObjectWithTag("VictoryTimer").GetComponent<TextMeshProUGUI>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<CanvasGroup>();
         gravitySlider = GameObject.FindGameObjectWithTag("GravitySlider").GetComponent<GravitySlider>();
+        warningNoise = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -57,6 +60,18 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
         pauseMenu.alpha = 0;
         isPaused = false;
+    }
+
+    public void StartWarning() {
+        if (!warningNoisePlaying) {
+            warningNoise.Play();
+            warningNoisePlaying = true;
+        }
+    }
+
+    public void EndWarning() {
+        warningNoise.Stop();
+        warningNoisePlaying = false;
     }
 
     public void GameOver() {
