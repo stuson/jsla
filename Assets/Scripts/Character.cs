@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TextSettings : MonoBehaviour
+public class Character : MonoBehaviour
 {
     public TMP_FontAsset font;
     public Color color;
+    public AudioSource voice;
 }

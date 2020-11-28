@@ -639,21 +639,21 @@ MonoBehaviour:
 
         *Warning*'
       clearLast: 1
-      textSettings: {fileID: 781096272}
+      character: {fileID: 781096272}
     - content: '*Lunar Catastrophe Imminent*'
       clearLast: 0
-      textSettings: {fileID: 781096272}
+      character: {fileID: 781096272}
     - content: '*Possible End-Of-World Scenario*'
       clearLast: 0
-      textSettings: {fileID: 781096272}
+      character: {fileID: 781096272}
     - content: Ha! And you wanted to get a silly carbon monoxide detector instead
         of an astronomical apocalypse alarm.
       clearLast: 1
-      textSettings: {fileID: 1384790368}
+      character: {fileID: 1384790368}
     - content: See, this is why I'm the astrophysicist and you're just a lousy space
         scientist.
       clearLast: 0
-      textSettings: {fileID: 1384790368}
+      character: {fileID: 1384790368}
     background: {fileID: 21300000, guid: 5d20a49454c9980459ae699af9c1e46e, type: 3}
     nextDialogue: {fileID: 1724178230}
 --- !u!4 &764840734
@@ -680,6 +680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 781096271}
   - component: {fileID: 781096272}
+  - component: {fileID: 781096273}
   m_Layer: 0
   m_Name: AlarmText
   m_TagString: Untagged
@@ -710,11 +711,108 @@ MonoBehaviour:
   m_GameObject: {fileID: 781096270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78c54b6d171a2c242a27dde79731830c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c340bf445bd0324fa5d508d89eab402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   font: {fileID: 11400000, guid: 52c0dc82045d13442a7391a7c321107b, type: 2}
   color: {r: 0.44535422, g: 0.6792453, b: 0.47103637, a: 1}
+  voice: {fileID: 781096273}
+--- !u!82 &781096273
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781096270}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 6900513314765300090, guid: ed9ddbe4c7f3902458ae3454ecb6f32a, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 1a468ba2eac57ce4781df21fd7ba9bcc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &821435071
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 821435072}
   - component: {fileID: 821435073}
+  - component: {fileID: 821435074}
   m_Layer: 0
   m_Name: MaryText
   m_TagString: Untagged
@@ -755,11 +854,108 @@ MonoBehaviour:
   m_GameObject: {fileID: 821435071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78c54b6d171a2c242a27dde79731830c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c340bf445bd0324fa5d508d89eab402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   font: {fileID: 11400000, guid: f9c62c3a23519f14db6b6a2b9ac977a1, type: 2}
   color: {r: 0.735849, g: 0, b: 0, a: 1}
+  voice: {fileID: 821435074}
+--- !u!82 &821435074
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821435071}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 6900513314765300090, guid: ed9ddbe4c7f3902458ae3454ecb6f32a, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 59630fd4e22b17349837c92dfb86c16f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &957012771
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +990,7 @@ MonoBehaviour:
     - content: Oh... well. I was only joking really, but if you're that serious about
         it then I guess I'll give it a go.
       clearLast: 1
-      textSettings: {fileID: 1395160667}
+      character: {fileID: 1395160667}
     background: {fileID: 21300000, guid: 3bf0ee38dcee17f488b15d07ec1b2988, type: 3}
     nextDialogue: {fileID: 1058138194}
 --- !u!4 &957012773
@@ -902,6 +1098,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 46058085}
+  - {fileID: 992698485}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -943,22 +1140,22 @@ MonoBehaviour:
     messages:
     - content: POSESSION OF THE MOON IS MY GOAL, GEORGE BAILEY.
       clearLast: 1
-      textSettings: {fileID: 821435073}
+      character: {fileID: 821435073}
     - content: NO TASK SHALL REMAIN THEN BUT TO CONSUME THE LUNAR BODY
       clearLast: 0
-      textSettings: {fileID: 821435073}
+      character: {fileID: 821435073}
     - content: FROM THAT MOMENT AND HENCEFORTH FOREVERMORE MOONBEAMS SHALL SHOOT
         FROM MY FINGERS AND TOES AND THE ENDS OF MY HAIR.
       clearLast: 1
-      textSettings: {fileID: 821435073}
+      character: {fileID: 821435073}
     - content: THAT WILL BE THE LAST COMPREHENSIBLE ACT OF CAUSALITY THE UNVERSE
         WILL EXPERIENCE FOR WHAT FOLLOWS WILL BE THE ERASURE OF ALL NATURAL LAWS.
       clearLast: 1
-      textSettings: {fileID: 821435073}
+      character: {fileID: 821435073}
     - content: NOETHER'S LAW WILL BECOME OBSOLETE AS PHYSICAL SYMMETRIES CRUMBLE
         TO DUST.
       clearLast: 0
-      textSettings: {fileID: 821435073}
+      character: {fileID: 821435073}
     background: {fileID: 21300000, guid: b5111ce2ee8547b4fa0b2c3088a07c14, type: 3}
     nextDialogue: {fileID: 957012772}
 --- !u!4 &990793989
@@ -975,6 +1172,230 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &992698484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 992698485}
+  - component: {fileID: 992698489}
+  - component: {fileID: 992698488}
+  - component: {fileID: 992698487}
+  - component: {fileID: 992698486}
+  m_Layer: 5
+  m_Name: SkipButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &992698485
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992698484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1050633280}
+  m_Father: {fileID: 978297613}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100, y: -35}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &992698486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992698484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4f6b4367b945149a4e9938aa222979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &992698487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992698484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 992698488}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &992698488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992698484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &992698489
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992698484}
+  m_CullTransparentMesh: 0
+--- !u!1 &1050633279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1050633280}
+  - component: {fileID: 1050633282}
+  - component: {fileID: 1050633281}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1050633280
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050633279}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 992698485}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1050633281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050633279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Skip Intro
+--- !u!222 &1050633282
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050633279}
+  m_CullTransparentMesh: 0
 --- !u!1 &1058138193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1429,7 @@ MonoBehaviour:
     messages:
     - content: Wow! First try! Pog!
       clearLast: 0
-      textSettings: {fileID: 1395160667}
+      character: {fileID: 1395160667}
     background: {fileID: 21300000, guid: 692ed6ce6937dd8439df7196aa66ad11, type: 3}
     nextDialogue: {fileID: 764840733}
 --- !u!4 &1058138195
@@ -1058,10 +1479,10 @@ MonoBehaviour:
     messages:
     - content: You want the moon?
       clearLast: 1
-      textSettings: {fileID: 1395160667}
+      character: {fileID: 1395160667}
     - content: Just say the word and I'll throw a lasso around it and pull it down.
       clearLast: 0
-      textSettings: {fileID: 1395160667}
+      character: {fileID: 1395160667}
     background: {fileID: 21300000, guid: f2051913a9288d74e830095f281c6f20, type: 3}
     nextDialogue: {fileID: 990793988}
 --- !u!4 &1333173444
@@ -1088,6 +1509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384790367}
   - component: {fileID: 1384790368}
+  - component: {fileID: 1384790369}
   m_Layer: 0
   m_Name: ScientistText
   m_TagString: Untagged
@@ -1118,11 +1540,108 @@ MonoBehaviour:
   m_GameObject: {fileID: 1384790366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78c54b6d171a2c242a27dde79731830c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c340bf445bd0324fa5d508d89eab402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   font: {fileID: 11400000, guid: 6a080248495701240a866d2f10d6758a, type: 2}
   color: {r: 1, g: 1, b: 1, a: 1}
+  voice: {fileID: 1384790369}
+--- !u!82 &1384790369
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384790366}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 6900513314765300090, guid: ed9ddbe4c7f3902458ae3454ecb6f32a, type: 2}
+  m_audioClip: {fileID: 8300000, guid: f8cb0423b8b377e4b9d931c045d33363, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1395160666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,6 +1652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1395160668}
   - component: {fileID: 1395160667}
+  - component: {fileID: 1395160669}
   m_Layer: 0
   m_Name: GeorgeText
   m_TagString: Untagged
@@ -1149,11 +1669,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1395160666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78c54b6d171a2c242a27dde79731830c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c340bf445bd0324fa5d508d89eab402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   font: {fileID: 11400000, guid: b6d77daa47ed88b44ba7c32d090d06db, type: 2}
   color: {r: 0.7216981, g: 0.96441245, b: 1, a: 1}
+  voice: {fileID: 1395160669}
 --- !u!4 &1395160668
 Transform:
   m_ObjectHideFlags: 0
@@ -1168,6 +1689,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1395160669
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395160666}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 6900513314765300090, guid: ed9ddbe4c7f3902458ae3454ecb6f32a, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 160846a234951ed4d93780ffbc010954, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1572707166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,10 +1818,10 @@ MonoBehaviour:
     messages:
     - content: What is it you want, Mary?
       clearLast: 1
-      textSettings: {fileID: 1395160667}
+      character: {fileID: 1395160667}
     - content: What do you want?
       clearLast: 0
-      textSettings: {fileID: 1395160667}
+      character: {fileID: 1395160667}
     background: {fileID: 21300000, guid: d8c3989bb9d5c7548b32e7ac8b1e9d97, type: 3}
     nextDialogue: {fileID: 1333173443}
 --- !u!4 &1572707168
@@ -1254,19 +1871,19 @@ MonoBehaviour:
     messages:
     - content: Anyway, I've got a plan to get this sorted.
       clearLast: 1
-      textSettings: {fileID: 1384790368}
+      character: {fileID: 1384790368}
     - content: I'll have to head to the lab, but it will take me about 5 minutes
         to get there.
       clearLast: 0
-      textSettings: {fileID: 1384790368}
+      character: {fileID: 1384790368}
     - content: Meanwhile the moon will be rapidly approaching the Earth's surface.
         That means gravity's going to start getting fucked up.
       clearLast: 0
-      textSettings: {fileID: 1384790368}
+      character: {fileID: 1384790368}
     - content: You'll find an anachronistic-looking console for the lab robot in
         the attic...
       clearLast: 1
-      textSettings: {fileID: 1384790368}
+      character: {fileID: 1384790368}
     background: {fileID: 21300000, guid: 311841a73ce32344d9a62b39eb8249e0, type: 3}
     nextDialogue: {fileID: 1982137435}
 --- !u!4 &1724178231
@@ -1317,12 +1934,20 @@ MonoBehaviour:
     - content: The controls are simple, just use the arrow keys to move and space
         to interact with objects.
       clearLast: 1
-      textSettings: {fileID: 1384790368}
+      character: {fileID: 1384790368}
     - content: Keep the equipment from floating up towards the moon and I'll be able
         to execute plan "Put That Moon Back Where It Came From Or So Help Me." Got
         it?
       clearLast: 0
-      textSettings: {fileID: 1384790368}
+      character: {fileID: 1384790368}
+    - content: 'I''m gonna need all of it, even Kepler Whiskers. Don''t let a single
+        one float up to the moon. '
+      clearLast: 1
+      character: {fileID: 1384790368}
+    - content: And keep an eye on your charge meter! Your robot's speed is directly
+        tied to the battery's power.
+      clearLast: 0
+      character: {fileID: 1384790368}
     background: {fileID: 21300000, guid: cc34e5f22414a7f4abcf5dcf6fc38fde, type: 3}
     nextDialogue: {fileID: 0}
 --- !u!4 &1982137436

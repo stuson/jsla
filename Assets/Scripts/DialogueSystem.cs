@@ -66,9 +66,10 @@ public class DialogueSystem : MonoBehaviour, IPointerClickHandler {
 
         newMessage += message.content;
         currentText = text.text + newMessage;
-        text.font = message.textSettings.font;
-        text.color = message.textSettings.color;
-        typingCoroutine = StartCoroutine("ShowText", newMessage);
+        text.font = message.character.font;
+        text.color = message.character.color;
+        object[] args = new object[2]{ newMessage, message.character.voice };
+        typingCoroutine = StartCoroutine("ShowText", args);
     }
 
     private void EndDialogue() {
@@ -83,11 +84,17 @@ public class DialogueSystem : MonoBehaviour, IPointerClickHandler {
         ProceedMessages();
     }
 
-    private IEnumerator ShowText(string newMessage) {
+    private IEnumerator ShowText(object[] args) {
+        string newMessage = (string)args[0];
+        AudioSource voice = (AudioSource)args[1];
+        
         isTyping = true;
         foreach (char character in newMessage) {
             text.text += character;
-            yield return new WaitForSeconds(0.03f);
+            if (!char.IsWhiteSpace(character)) {
+                voice.PlayOneShot(voice.clip);
+            }
+            yield return new WaitForSeconds(0.06f);
         }
         isTyping = false;
     }
