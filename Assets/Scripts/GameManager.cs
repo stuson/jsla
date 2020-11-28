@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     private bool isPaused = false;
     private AudioSource warningNoise;
     private bool warningNoisePlaying;
+    private AudioSource music;
 
     void Start() {
         victoryTimer = TimeSpan.FromSeconds(victoryTime);
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour {
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<CanvasGroup>();
         gravitySlider = GameObject.FindGameObjectWithTag("GravitySlider").GetComponent<GravitySlider>();
         warningNoise = GetComponent<AudioSource>();
+        music = Camera.main.GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -35,7 +37,8 @@ public class GameManager : MonoBehaviour {
             if (Input.GetKeyDown("space")) {
                 ResumeGame();
             } else if (Input.GetKeyDown("escape")) {
-                Application.Quit();
+                ResumeGame();
+                SceneManager.LoadScene("TitleScreen");
             }
             return;
         }
@@ -53,12 +56,14 @@ public class GameManager : MonoBehaviour {
     private void PauseGame() {
         Time.timeScale = 0;
         pauseMenu.alpha = 1;
+        music.Pause();
         isPaused = true;
     }
 
     private void ResumeGame() {
         Time.timeScale = 1;
         pauseMenu.alpha = 0;
+        music.UnPause();
         isPaused = false;
     }
 
