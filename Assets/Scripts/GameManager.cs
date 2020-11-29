@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 0;
         pauseMenu.alpha = 1;
         music.Pause();
+        warningNoise.Pause();
         isPaused = true;
     }
 
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
         pauseMenu.alpha = 0;
         music.UnPause();
+        warningNoise.UnPause();
         isPaused = false;
     }
 
@@ -72,6 +74,15 @@ public class GameManager : MonoBehaviour {
             warningNoise.Play();
             warningNoisePlaying = true;
         }
+    }
+
+    public void CheckCritical() {
+        Task[] tasks = GameObject.FindObjectsOfType<Task>();
+        foreach(Task task in tasks) {
+            if (task.status == TaskStatus.critical) return;
+        }
+
+        EndWarning();
     }
 
     public void EndWarning() {

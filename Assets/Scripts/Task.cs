@@ -6,7 +6,7 @@ using UnityEngine;
 public class Task : MonoBehaviour {
     [SerializeField] private float baseMinCooldown = 20f;
     [SerializeField] private float baseMaxCooldown = 120f;
-    private TaskStatus status = TaskStatus.repaired;
+    public TaskStatus status = TaskStatus.repaired;
 
     [SerializeField] private float criticalThreshold = -30f;
     [SerializeField] private float gameOverThreshold = -40f;
@@ -58,7 +58,7 @@ public class Task : MonoBehaviour {
             float maxCooldown = ScaleCooldown(baseMaxCooldown);
             breakTimer = Random.Range(minCooldown, maxCooldown);
             fixNoise.Play();
-            gameManager.EndWarning();
+            gameManager.CheckCritical();
         }
     }
 
