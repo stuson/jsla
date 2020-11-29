@@ -92,9 +92,10 @@ public class DialogueSystem : MonoBehaviour, IPointerClickHandler {
         foreach (char character in newMessage) {
             text.text += character;
             if (!char.IsWhiteSpace(character)) {
-                voice.PlayOneShot(voice.clip);
+                voice.pitch = Random.Range(0.9f, 1f);
+                voice.PlayOneShot(voice.clip, Random.Range(0.9f, 1f));
             }
-            yield return new WaitForSeconds(0.06f);
+            yield return new WaitForSeconds(0.02f);
         }
         isTyping = false;
     }
