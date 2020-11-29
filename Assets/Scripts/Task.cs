@@ -8,8 +8,8 @@ public class Task : MonoBehaviour {
     [SerializeField] private float baseMaxCooldown = 120f;
     private TaskStatus status = TaskStatus.repaired;
 
-    [SerializeField] private float criticalThreshold = -20f;
-    [SerializeField] private float gameOverThreshold = -30f;
+    [SerializeField] private float criticalThreshold = -30f;
+    [SerializeField] private float gameOverThreshold = -40f;
     [SerializeField] private float breakTimer;
 
     private float originalX;
