@@ -28,63 +28,70 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
-        float hDirection = Input.GetAxisRaw("Horizontal");
-        float vDirection = Input.GetAxisRaw("Vertical");
-
-
         if (isClimbing) {
-            if ((canDismount || vDirection == 0) && hDirection != 0) {
-                Collider2D ground = GetOverlappingGround();
-                if (ground != null) {
-                    GetOffLadder(ground, hDirection);
-                }
-            }
-
-            Collider2D ladder = GetOverlappingLadder(vDirection);
-            if (isClimbing && ladder != null) {
-                vVelocity = Mathf.MoveTowards(vVelocity, vDirection * climbSpeed, climbAcceleration);
-            } else {
-                vVelocity = 0f;
-            }
-            
-            
+            LadderMovement();
         } else {
-            if (canMount && vDirection != 0) {
-                Collider2D ladder = GetOverlappingLadder(vDirection);
-                if (ladder != null) {
-                    GetOnLadder(ladder);
-                }
-            }
+            GroundMovement();
+        }
 
-            if (!isClimbing && hDirection != 0f && IsGrounded(hDirection)) {
-                hVelocity = Mathf.MoveTowards(hVelocity, hDirection * speed, acceleration);
-            } else {
-                hVelocity = 0f;
-            }
-
-            if (Input.GetButtonDown("Interact")) {
-                Collider2D taskCollider = GetOverlappingTask();
-                if (taskCollider != null) {
-                    taskCollider.gameObject.GetComponent<Task>().Repair();
-                }
-            }
-
-            if (Input.GetAxis("Interact") > 0f && GetOverlappingChargeStation()) {
-                player.Charge();
+        if (Input.GetButtonDown("Interact")) {
+            Collider2D taskCollider = GetOverlappingTask();
+            if (taskCollider != null) {
+                taskCollider.gameObject.GetComponent<Task>().Repair();
             }
         }
 
-        if (Input.GetButtonUp("Horizontal")) {
-            canDismount = true;
-        }
-
-        if (Input.GetButtonUp("Vertical")) {
-            canMount = true;
+        if (Input.GetAxis("Interact") > 0f && GetOverlappingChargeStation()) {
+            player.Charge();
         }
 
         float speedMul = Mathf.Lerp(0.3f, 1f, player.charge);
-
         transform.Translate(hVelocity * speedMul * Time.deltaTime, vVelocity * speedMul * Time.deltaTime, 0f);
+    }
+
+    private void LadderMovement() {
+        float hDirection = Input.GetAxisRaw("Horizontal");
+        float vDirection = Input.GetAxisRaw("Vertical");
+
+        Collider2D ground = GetOverlappingGround();
+        Collider2D ladder = GetOverlappingLadder(vDirection);
+
+        if (ground == null) {
+            canDismount = true;
+        }
+
+        if (canDismount && hDirection != 0 && ground != null) {
+            GetOffLadder(ground, hDirection);
+            return;
+        }
+
+        if (vDirection != 0 && ladder != null) {
+            vVelocity = Mathf.MoveTowards(vVelocity, vDirection * climbSpeed, climbAcceleration);
+        } else {
+            vVelocity = 0f;
+        }
+    }
+
+    private void GroundMovement() {
+        float hDirection = Input.GetAxisRaw("Horizontal");
+        float vDirection = Input.GetAxisRaw("Vertical");
+
+        Collider2D ground = GetOverlappingGround();
+        Collider2D ladder = GetOverlappingLadder(vDirection);
+        if (ladder == null) {
+            canMount = true;
+        }
+
+        if (canMount && vDirection != 0 && ladder != null) {
+            GetOnLadder(ladder);
+            return;
+        }
+
+        if (hDirection != 0 && IsGrounded(hDirection)) {
+            hVelocity = Mathf.MoveTowards(hVelocity, hDirection * speed, acceleration);
+        } else {
+            hVelocity = 0f;
+        }
     }
 
     private bool IsGrounded(float direction) {
@@ -130,7 +137,7 @@ public class PlayerMovement : MonoBehaviour {
         vVelocity = 0f;
         float groundSurfaceHeight = ground.transform.position.y + ground.transform.localScale.y / 2;
         float playerHeightOffset = transform.localScale.y / 2;
-        transform.position = new Vector3(transform.position.x + direction * transform.localScale.x / 2, groundSurfaceHeight + playerHeightOffset, transform.position.z);
+        transform.position = new Vector3(transform.position.x + direction * (transform.localScale.x + 0.6f), groundSurfaceHeight + playerHeightOffset, transform.position.z);
         isClimbing = false;
         canMount = false;
     }
