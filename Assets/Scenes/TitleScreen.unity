@@ -805,6 +805,7 @@ MonoBehaviour:
   - {fileID: 1037921505}
   - {fileID: 1366818513}
   - {fileID: 1700195125}
+  transitionPlaying: 1
 --- !u!82 &415106455
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2543,6 +2544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31ebcaae4fee684c8c5910b3aa648fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuSelect: {fileID: 415106454}
 --- !u!1 &1248711654
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,12 +6,17 @@ public class MenuSelect : MonoBehaviour {
     [SerializeField] private MenuOption[] menuOptions;
     private int optionIndex = 0;
     private AudioSource selectNoise;
+    public bool transitionPlaying = true;
 
     void Start() {
         selectNoise = GetComponent<AudioSource>();
     }
 
     void Update() {
+        if (transitionPlaying) {
+            return;
+        }
+
         if (Input.GetKeyDown("up")) {
             NextOption(menuOptions.Length - 1);
         } else if (Input.GetKeyDown("down")) {

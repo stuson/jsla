@@ -7,6 +7,7 @@ public class TitleScreenBlocker : MonoBehaviour {
     private Image image;
     private float alpha = 1f;
     private float alphaChange = 0f;
+    public MenuSelect menuSelect;
 
     void Start() {
         image = GetComponent<Image>();
@@ -18,6 +19,7 @@ public class TitleScreenBlocker : MonoBehaviour {
         
         if (alpha < 0.6f) {
             image.raycastTarget = false;
+            menuSelect.transitionPlaying = false;
         } else if (alpha <= 0f) {
             Destroy(gameObject);
         }
