@@ -21,10 +21,12 @@ public class PlayerMovement : MonoBehaviour {
     private bool isClimbing = false;
     public bool canDismount = false;
     public bool canMount = true;
+    private GameManager gameManager;
 
     void Start() {
         collide = GetComponent<BoxCollider2D>();
         player = GetComponent<PlayerBehaviour>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     void Update() {
@@ -34,14 +36,14 @@ public class PlayerMovement : MonoBehaviour {
             GroundMovement();
         }
 
-        if (Input.GetButtonDown("Interact")) {
+        if (!gameManager.gameOver && Input.GetButtonDown("Interact")) {
             Collider2D taskCollider = GetOverlappingTask();
             if (taskCollider != null) {
                 taskCollider.gameObject.GetComponent<Task>().Repair();
             }
         }
 
-        if (Input.GetAxis("Interact") > 0f && GetOverlappingChargeStation()) {
+        if (!gameManager.gameOver && Input.GetAxis("Interact") > 0f && GetOverlappingChargeStation()) {
             player.Charge();
         }
 

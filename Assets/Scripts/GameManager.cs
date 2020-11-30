@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour {
     public TimeSpan victoryTimer;
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour {
     private AudioSource warningNoise;
     private bool warningNoisePlaying;
     private AudioSource music;
+    public bool gameOver = false;
+    public CinemachineTargetGroup targetGroup;
 
     void Start() {
         victoryTimer = TimeSpan.FromSeconds(victoryTime);
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour {
         victoryTimer = victoryTimer.Subtract(TimeSpan.FromSeconds(Time.deltaTime));
         victoryTimerDisplay.text = $"{victoryTimer:m\\:ss}";
         if (victoryTimer.TotalSeconds < 0f) {
-            GameOver();
+            Victory();
         }
 
         difficultyFactor *= 1f + Time.deltaTime / 100;
@@ -90,8 +93,26 @@ public class GameManager : MonoBehaviour {
         warningNoisePlaying = false;
     }
 
-    public void GameOver() {
-        Debug.Log("Game Over");
+    public void GameOver(Task task) {
+        if (gameOver) {
+            return;
+        }
+
+        StartCoroutine("StartGameOver", task);
+    }
+
+    private IEnumerator StartGameOver(Task task) {
+        targetGroup.AddMember(task.transform, 0.2f, 1f);
+        task.flying = true;
+        yield return new WaitForSeconds(10f);
+        GoToTitleScreen();
+    }
+
+    private void Victory() {
+        GoToTitleScreen();
+    }
+
+    private void GoToTitleScreen() {
         SceneManager.LoadScene("TitleScreen");
     }
 }

@@ -29,6 +29,11 @@ public class Task : MonoBehaviour {
     [SerializeField] private Material criticalMaterial;
     private GameManager gameManager;
     private AudioSource fixNoise;
+    public bool flying = false;
+    private float rotationSpeed = 0f;
+    private float rotationSpeedVelocity = 0f;
+    private float flySpeed = 0f;
+    private float flySpeedVelocity = 0f;
     
 
     void Start() {
@@ -43,7 +48,12 @@ public class Task : MonoBehaviour {
     void Update() {
         breakTimer -= Time.deltaTime;
         CheckStatus();
-        Shake();
+
+        if (!flying) {
+            Shake();
+        } else {
+            FlyAway();
+        }
     }
 
     private float ScaleCooldown(float baseCooldown) {
@@ -100,7 +110,7 @@ public class Task : MonoBehaviour {
     private void SetDestroyed() {
         render.color = Color.black;
         status = TaskStatus.destroyed;
-        gameManager.GameOver();
+        gameManager.GameOver(this);
     }
 
     private void CreatePointer(GameObject warningPointer) {
@@ -136,6 +146,13 @@ public class Task : MonoBehaviour {
         }
 
         transform.position = new Vector3(originalX + Mathf.Sin(Time.time * shakeSpeed) * shakeAmount, transform.position.y, transform.position.z);
+    }
+
+    private void FlyAway() {
+        rotationSpeed = Mathf.SmoothDamp(rotationSpeed, 50f, ref rotationSpeedVelocity, 3f);
+        flySpeed = Mathf.SmoothDamp(flySpeed, 10f, ref flySpeedVelocity, 5f);
+        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotationSpeed * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, transform.position.y + flySpeed * Time.deltaTime, transform.position.z);
     }
 }
 
