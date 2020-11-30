@@ -20,14 +20,14 @@ public class VolumeSetting : MenuOption {
 
         float currentVolume;
         mixer.GetFloat(mixerGroup, out currentVolume);
-        currentVolume = Mathf.InverseLerp(-40f, 0f, currentVolume);
+        currentVolume = Mathf.InverseLerp(-60f, 0f, currentVolume);
         SetVolume(currentVolume);
     }
 
     void Update() {
         if (selected && Input.GetButtonDown("Horizontal")) {
             float h = Input.GetAxisRaw("Horizontal");
-            IncrementVolume(0.1f * h);
+            IncrementVolume(0.05f * h);
         }
     }
 
@@ -42,14 +42,14 @@ public class VolumeSetting : MenuOption {
     private void IncrementVolume(float delta) {
         float currentVolume;
         mixer.GetFloat(mixerGroup, out currentVolume);
-        currentVolume = Mathf.InverseLerp(-40f, 0f, currentVolume);
+        currentVolume = Mathf.InverseLerp(-60f, 0f, currentVolume);
         float newVolume = Mathf.Clamp(currentVolume + delta, 0f, 1f);
         SetVolume(newVolume);
         PlaySampleNoise();
     }
 
     private void SetVolume(float volume) {
-        mixer.SetFloat(mixerGroup, Mathf.Lerp(-40f, 0f, volume));
+        mixer.SetFloat(mixerGroup, Mathf.Lerp(-60f, 0f, volume));
         volumeSlider.value = volume;
     }
 
