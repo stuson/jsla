@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
         if (!isPaused && Input.GetKeyDown("escape")) {
-            Debug.Log("Pasued");
             PauseGame();
             return;
         }
@@ -98,11 +97,12 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
+        gameOver = true;
         StartCoroutine("StartGameOver", task);
     }
 
     private IEnumerator StartGameOver(Task task) {
-        targetGroup.AddMember(task.transform, 0.2f, 1f);
+        targetGroup.AddMember(task.transform, 1f, 1f);
         task.flying = true;
         yield return new WaitForSeconds(10f);
         GoToTitleScreen();

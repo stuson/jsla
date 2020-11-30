@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    [SerializeField] private float speed = 14f;
+    [SerializeField] public float speed = 14f;
     [SerializeField] private float acceleration = 2f;
     [SerializeField] private float climbSpeed = 8.8f;
     [SerializeField] private float climbAcceleration = 6.4f;
