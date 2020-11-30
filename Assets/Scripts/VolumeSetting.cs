@@ -13,7 +13,6 @@ public class VolumeSetting : MenuOption {
     new void Start() {
         base.Start();
         volumeSlider = GetComponentInChildren<Slider>();
-        volumeSlider.onValueChanged.AddListener(delegate { UpdateVolume(); });
         if (sampleNoise == null) {
             sampleNoise = selectNoise;
         }
@@ -22,6 +21,7 @@ public class VolumeSetting : MenuOption {
         mixer.GetFloat(mixerGroup, out currentVolume);
         currentVolume = Mathf.InverseLerp(-60f, 0f, currentVolume);
         SetVolume(currentVolume);
+        volumeSlider.onValueChanged.AddListener(delegate { UpdateVolume(); });
     }
 
     void Update() {
