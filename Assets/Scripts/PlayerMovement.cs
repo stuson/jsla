@@ -36,6 +36,14 @@ public class PlayerMovement : MonoBehaviour {
             GroundMovement();
         }
 
+        if (Input.GetButtonUp("Vertical")) {
+            canDismount = true;
+        }
+
+        if (Input.GetButtonUp("Horizontal")) {
+            canMount = true;
+        }
+
         if (!gameManager.gameOver && Input.GetButtonDown("Interact")) {
             Collider2D taskCollider = GetOverlappingTask();
             if (taskCollider != null) {
@@ -107,8 +115,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private Collider2D GetOverlappingGround() {
-        Vector3 origin = new Vector3(transform.position.x, transform.position.y - transform.localScale.y / 4, transform.position.z);
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, 3 * transform.localScale.y / 4 + 0.05f, groundLayers);
+        Vector3 origin = new Vector3(transform.position.x, transform.position.y + transform.localScale.y / 2, transform.position.z);
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, transform.localScale.y + 0.05f, groundLayers);
+
+        Debug.DrawLine(origin, origin + Vector3.down * (transform.localScale.y + 0.05f), Color.red, Time.deltaTime, false);
+
         return hit.collider;
     }
 
