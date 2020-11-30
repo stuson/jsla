@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Victory() {
-        GoToTitleScreen();
+        SceneManager.LoadScene("Final");
     }
 
     private void GoToTitleScreen() {
