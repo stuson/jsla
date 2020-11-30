@@ -13,7 +13,7 @@ public class MenuSelect : MonoBehaviour {
 
     void Update() {
         if (Input.GetKeyDown("up")) {
-            NextOption(-1);
+            NextOption(menuOptions.Length - 1);
         } else if (Input.GetKeyDown("down")) {
             NextOption(1);
         } else if (Input.GetButtonDown("Proceed")) {
