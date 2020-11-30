@@ -14,6 +14,7 @@ public class DialogueSystem : MonoBehaviour, IPointerClickHandler {
     private bool isTyping = false;
     private Coroutine typingCoroutine;
     private string currentText;
+    private int revealed;
     [SerializeField] private DialogueInstance initialDialogue;
 
     void Start() {
@@ -55,21 +56,18 @@ public class DialogueSystem : MonoBehaviour, IPointerClickHandler {
         }
 
         Message message = messages.Dequeue();
-        
-        string newMessage = "";
 
         if (message.clearLast) {
-            text.text = "";
+            revealed = 0;
+            currentText = "";
         } else {
-            newMessage = "\n\n";
+            currentText += "\n\n";
         }
 
-        newMessage += message.content;
-        currentText = text.text + newMessage;
+        currentText += message.content;
         text.font = message.character.font;
         text.color = message.character.color;
-        object[] args = new object[2]{ newMessage, message.character.voice };
-        typingCoroutine = StartCoroutine("ShowText", args);
+        typingCoroutine = StartCoroutine("ShowText", message.character.voice);
     }
 
     private void EndDialogue() {
@@ -84,17 +82,18 @@ public class DialogueSystem : MonoBehaviour, IPointerClickHandler {
         ProceedMessages();
     }
 
-    private IEnumerator ShowText(object[] args) {
-        string newMessage = (string)args[0];
-        AudioSource voice = (AudioSource)args[1];
-        
+    private IEnumerator ShowText(AudioSource voice) {        
+        string cTag = "<color=#00000000>";
         isTyping = true;
-        foreach (char character in newMessage) {
-            text.text += character;
-            if (!char.IsWhiteSpace(character)) {
-                voice.pitch = Random.Range(0.9f, 1f);
+
+        for (int i=revealed; i < currentText.Length; ++i) {
+            text.text = currentText.Insert(i + 1, cTag) + "</color>";
+            if (!char.IsWhiteSpace(currentText[i])) {
+                voice.pitch = Random.Range(0.95f, 1f);
                 voice.PlayOneShot(voice.clip, Random.Range(0.9f, 1f));
             }
+
+            revealed = i;
             yield return new WaitForSeconds(0.02f);
         }
         isTyping = false;
