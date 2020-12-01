@@ -33,39 +33,30 @@
 			image-rendering: pixelated;
 			-ms-interpolation-mode: nearest-neighbor;` }}}
 		}
+
+		#loading-container {
+			width: 100%;
+			height: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			margin: 0;
+			overflow: visible;
+			flex-wrap: wrap;
+		}
 	</style>
 </head>
 
 <body>
+	<div id="loading-container">
+		<object data="spinner.svg"></object>
+	</div>
 	<div id="gameContainer">
 		<canvas id="unity-canvas"></canvas>
+		<h1 id="loading">Loading...</h1>
 		<script src="Build/{{{ LOADER_FILENAME }}}"></script>
 		<script>
-			function unityProgress(unityInstance, progress) {
-				if (!unityInstance.Module)
-					return;
-				if (!unityInstance.logo) {
-					unityInstance.logo = document.createElement("div");
-					unityInstance.logo.className = "logo " + unityInstance.Module.splashScreenStyle;
-					unityInstance.container.appendChild(unityInstance.logo);
-				}
-				if (!unityInstance.progress) {    
-					unityInstance.progress = document.createElement("div");
-					unityInstance.progress.className = "progress " + unityInstance.Module.splashScreenStyle;
-					unityInstance.progress.empty = document.createElement("div");
-					unityInstance.progress.empty.className = "empty";
-					unityInstance.progress.appendChild(unityInstance.progress.empty);
-					unityInstance.progress.full = document.createElement("div");
-					unityInstance.progress.full.className = "full";
-					unityInstance.progress.appendChild(unityInstance.progress.full);
-					unityInstance.container.appendChild(unityInstance.progress);
-				}
-				unityInstance.progress.full.style.width = (100 * progress) + "%";
-				unityInstance.progress.empty.style.width = (100 * (1 - progress)) + "%";
-				if (progress == 1)
-					unityInstance.logo.style.display = unityInstance.progress.style.display = "none";
-			}
-
 			createUnityInstance(document.querySelector("#unity-canvas"), {
 				dataUrl: "Build/{{{ DATA_FILENAME }}}",
 				frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
@@ -80,7 +71,8 @@
 				companyName: "{{{ COMPANY_NAME }}}",
 				productName: "{{{ PRODUCT_NAME }}}",
 				productVersion: "{{{ PRODUCT_VERSION }}}",
-			}, unityProgress).then(function (instance) {
+			}).then(function (instance) {
+				document.getElementById("loading-container").remove();
 				var canvas = instance.Module.canvas;
 				var container = canvas.parentElement;
 				function onResize() {
