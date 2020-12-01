@@ -49,6 +49,7 @@ public class PlayerBehaviour : MonoBehaviour {
     private void CheckCharge() {
         if (charge <= 0f) {
             player.speed = 0f;
+            player.climbSpeed = 0f;
         }
     }
 
