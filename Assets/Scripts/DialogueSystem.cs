@@ -47,6 +47,7 @@ public class DialogueSystem : MonoBehaviour, IPointerClickHandler {
             StopCoroutine(typingCoroutine);
             text.text = currentText;
             isTyping = false;
+            revealed = currentText.Length;
             return;
         }
 
