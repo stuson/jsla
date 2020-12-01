@@ -27,7 +27,7 @@ public class PlayerBehaviour : MonoBehaviour {
             Discharge();
         }
 
-        if ((targetVolume == 0f && currentVolume > 0.001f) || (targetVolume == 1f && currentVolume < 0.999f)) {
+        if ((targetVolume == 0f && currentVolume > 0.001f) || (targetVolume == 0.8f && currentVolume < 0.799f)) {
             currentVolume = Mathf.SmoothDamp(currentVolume, targetVolume, ref fadeVelocity, 0.2f);
             chargeNoise.volume = currentVolume;
         }
@@ -55,7 +55,7 @@ public class PlayerBehaviour : MonoBehaviour {
     public void Charge() {
         charge = Mathf.SmoothDamp(charge, 1f, ref chargeSpeed, 4f);
         batterySlider.UpdateCharge(charge);
-        targetVolume = 1f;
+        targetVolume = 0.8f;
         if (player.speed == 0f) {
             player.speed = initialPlayerSpeed;
         }
