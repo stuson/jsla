@@ -2284,7 +2284,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Game Paused
 
-    Press ESC again to quit or SPACE to resume'
+    Press P again to quit or SPACE to resume'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7aac4edc5394589438bde2b9749369c1, type: 2}
   m_sharedMaterial: {fileID: -3073576646712703884, guid: 7aac4edc5394589438bde2b9749369c1, type: 2}
@@ -2418,24 +2418,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab2f0380c35152241987e1c0c23978de, type: 3}
---- !u!1 &1704911829 stripped
+--- !u!1 &1707927340 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 9168916553940668323, guid: ab2f0380c35152241987e1c0c23978de, type: 3}
-  m_PrefabInstance: {fileID: 1704911828}
+  m_CorrespondingSourceObject: {fileID: 5015595271333540901, guid: 74b77f7bc2ffc644ca33b74ca3c9b5b2, type: 3}
+  m_PrefabInstance: {fileID: 5015595270343349204}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1704911830
+--- !u!82 &1707927345
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704911829}
+  m_GameObject: {fileID: 1707927340}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6900513314765300090, guid: ed9ddbe4c7f3902458ae3454ecb6f32a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8a491769b4ec3a941a0661dccec0fb30, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0

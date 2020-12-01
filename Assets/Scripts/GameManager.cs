@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        if (!isPaused && Input.GetKeyDown("escape")) {
+        if (!isPaused && Input.GetKeyDown("p")) {
             PauseGame();
             return;
         }
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour {
         if (isPaused) {
             if (Input.GetKeyDown("space")) {
                 ResumeGame();
-            } else if (Input.GetKeyDown("escape")) {
+            } else if (Input.GetKeyDown("p")) {
                 ResumeGame();
                 SceneManager.LoadScene("TitleScreen");
             }

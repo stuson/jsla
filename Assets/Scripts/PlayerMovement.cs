@@ -51,8 +51,10 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-        if (!gameManager.gameOver && Input.GetAxis("Interact") > 0f && GetOverlappingChargeStation()) {
+        if (!gameManager.gameOver && Input.GetAxisRaw("Interact") > 0f && GetOverlappingChargeStation()) {
             player.Charge();
+        } else {
+            player.StopCharge();
         }
 
         float speedMul = Mathf.Lerp(0.3f, 1f, player.charge);
