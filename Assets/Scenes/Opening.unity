@@ -297,12 +297,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 22
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 20
-  m_fontSizeMax: 50
+  m_fontSizeMin: 18
+  m_fontSizeMax: 22
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 1024
@@ -729,7 +729,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 6900513314765300090, guid: ed9ddbe4c7f3902458ae3454ecb6f32a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1a468ba2eac57ce4781df21fd7ba9bcc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
