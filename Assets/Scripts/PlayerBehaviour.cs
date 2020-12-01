@@ -28,7 +28,7 @@ public class PlayerBehaviour : MonoBehaviour {
         }
 
         if ((targetVolume == 0f && currentVolume > 0.001f) || (targetVolume == 0.8f && currentVolume < 0.799f)) {
-            currentVolume = Mathf.SmoothDamp(currentVolume, targetVolume, ref fadeVelocity, 0.2f);
+            currentVolume = Mathf.SmoothDamp(currentVolume, targetVolume, ref fadeVelocity, 0.05f);
             chargeNoise.volume = currentVolume;
         }
     }
