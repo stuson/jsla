@@ -804,7 +804,6 @@ MonoBehaviour:
   - {fileID: 269523181}
   - {fileID: 1037921505}
   - {fileID: 1366818513}
-  - {fileID: 1700195125}
   transitionPlaying: 1
 --- !u!82 &415106455
 AudioSource:
@@ -2366,7 +2365,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181167237}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
